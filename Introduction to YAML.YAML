@@ -1,0 +1,81 @@
+What YAML is?
+
+All Ansible playbooks are written in YAML, also we've seen YAML files in Kunernetes.
+YAML file is to represnt data.
+
+
+YAML files
+
+key: value
+
+city: Varanasi
+Month: May
+Year: 2022
+Food: Curry
+
+Array/List The - indicates this is an Array.
+===========
+
+City:
+-  Varanasi
+-  Lucknow
+-  New Delhi
+
+Food:
+-  Roti
+-  Curry
+-  Daal
+
+==============
+Dictornay/Map Set ofproperties group toghter under an item. Notice the blank space for each properties, you must have equal number
+of blank space for each item.
+
+
+Curry:
+  Calaries: 100
+  Vitamins: 20
+  Carbs: 20
+
+banana:
+  Calories: 70
+  Vitamins: 50
+  carbs: 20
+
+
+=============
+DIctonary/Lists
+
+
+City:
+  -  Newdelhi:
+        Population: 100
+        Male: 65
+        Female: 35
+
+  -  Varanasi:
+        Population: 75
+        Male: 55
+        Female: 45
+
+===============
+Dictonary vs List vs List of Dictionary
+
+
+We use Dictonary to store different properties of a single object.
+We can have dictonary under a dictonary.
+
+To store multiple item of the same type of the object, we can use LIST.
+
+
+Dictonary is an un-orderd collection wheras List is an ordered collection
+
+Arrays/List are ordered collection
+
+
+
+
+
+SPace/Indentation is the key in YAML.
+--------------------
+https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html
+http://www.yamllint.com/

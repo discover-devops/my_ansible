@@ -1,0 +1,59 @@
+Ansible Modules
+-----------------
+
+Here we are going to discuss about the Ansibel Modules. 
+Ansible modules are categorized into various groups based on their functionality 
+some of them are listed here:
+
+
+System modules are actions to be performed at a system level such as modifying the users and groups on the system, 
+modifying iptables,firewall configurations on the system, working with logical volume groups,mounting operations, or working with services.
+For example, starting, stopping, or restarting services in a system.
+
+Command modules are used to execute commands or scripts on a host.These could be simple commands using the command module or an interactive
+execution using the expect module by responding to prompts.
+
+You could also run a script on the host using the script module.
+
+File modules help work with files.For example, use the ACL module to set and retrieve ACL information 
+on files.Use the archive and unarchive modules to compress and unpack files.
+Use find, lineinfile,and replace modules to modify the contents of an existing file.
+
+Database modules help in working with databases such as MongoDB, MySQL, MSSQL,or PostgreSQL to add or remove databases or modify database configurations.
+
+The cloud section has a vast collection of modulesfor various different cloud providers like Amazon, Azure, Docker, Google,
+OpenStack, and VMware being just a few of them.
+
+There are a number of modules available for each of these that allowyou to perform various tasks such as creating and destroying instances,
+performing configuration changes in networking & security,managing containers, datacenters, clusters, virtual networking, VSAN,
+and a lot more.
+
+Then there are Windows modules that help use Ansible in a Windows environment.Some ofthese are win_copy to copy files,
+win_command to execute a command on a Windows machine and thereare a bunch of other modules available to work with files on Windows,
+create a IIS website, install a software using MSI installer,make changes to registry using regedit and manage services and users in Windows.
+
+These are just a few modules in a few categories.There are a lot more and a comprehensive list can be found at docs.ansible.com along with detailed instructions on each of them.
+
+Let’s look at few of these modules in detail to understand, how you can use them and how to read the documentation page.
+We will start with the command module.
+
+The command module is used to execute a command on a remote node.The parameters of the command module as listed
+in the documentation page is shown here.
+
+Another module to look at is the script module.The script module executes a script which is located locally on the Ansible
+controller machine on one or more remote nodes after transferring it over. To run a script on one or hundreds of servers,
+you really don’t have to copy it over to all the servers,Ansible takes care of automatically copying the script to the remote node and then executing it on the remote systems.
+
+This is done through a very simple player that looks like this.Use the script module and specify the location of the script
+on the Ansible controller machine and the arguments.
+
+
+- name: Transfer and execute a script.
+  hosts: all
+  tasks:
+
+     - name: Copy and Execute the script 
+       script: /home/user/userScript.sh
+
+
+

@@ -1,0 +1,81 @@
+Ansible Variables
+-------------------
+
+We are now going to talk about look at variables in Ansible.
+
+So what are variables, just like any other scripting or programming, language variables are used to store values that varies with different items.
+For example, let's say we are trying to perform the same operation of applying patches to 
+hundreds of servers.
+
+We only need a single playbook for all 100 servers. However, it's the variables that store information about the different host names, usernames or passwords
+that are different for each server.
+
+We can define as many variables as required like this. We could also define variables inside the playbook.
+To add a variable, we could simply add a "Vars" directive, followed by variables in a key value pair format.
+
+We can also have variables defined in a separate file dedicated for variables. We will learn about this more later when we talk about includes enrols.
+
+
+
+- hosts: all
+  vars:
+    region:
+      - ap-south-1
+      - us-east-1
+
+      
+  tasks:
+  - name: Ansible List variable Example
+    debug:
+      msg: "{{ region [1] }}"
+
+
+vars:
+    region: [ap-south-1, us-east-1]
+
+
+
+
+https://medium.com/nerd-for-tech/installing-jenkins-using-an-ansible-playbook-2d99303a235f
+
+
+
+---
+- hosts: target
+  become: yes
+  remote_user: ec2-user
+  become_user: root
+  tasks:
+  - name: Download Long Term Jenkins release
+    get_url:
+      url: https://pkg.jenkins.io/redhat-stable/jenkins.repo
+      dest: /etc/yum.repos.d/jenkins.repo
+
+  - name: Import jenkins key from url
+    ansible.builtin.rpm_key:
+      state: present
+      key: https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+  - name: yum update
+    yum:
+      name: '*'
+      state: latest
+
+  - name: Install java
+    yum:
+      name: java-11-openjdk-devel
+      state: present
+
+  - name: Install jenkins
+    yum:
+      name: jenkins
+      state: latest
+
+  - name: daemon-reload to pick up config changes
+    ansible.builtin.systemd:
+      daemon_reload: yes
+
+  - name: Start jenkins
+    ansible.builtin.systemd:
+      name: jenkins
+      state: started
