@@ -1,6 +1,9 @@
 **Configuration Management Tool:**
 A Configuration Management (CM) tool is a software application that helps manage and control the configuration of software and hardware components in a system. It enables organizations to automate the process of deploying, configuring, and maintaining software applications and infrastructure. Configuration management tools play a crucial role in ensuring consistency, reliability, and efficiency in IT environments.
 
+![image](https://github.com/discover-devops/my_ansible/assets/53135263/4cfc9f3b-1cfe-4f71-9626-6c8791986a53)
+
+
 **Use Cases of Configuration Management Tools:**
 1. **Infrastructure Automation:** Automate the provisioning and configuration of servers and other infrastructure components.
 2. **Version Control:** Manage and version control configurations to track changes and roll back to previous states if needed.
@@ -19,6 +22,11 @@ In cloud computing, configuration management tools are especially valuable due t
 4. **Ansible:** Relies on simple YAML scripts and operates over SSH, making it agentless.
 5. **SaltStack (Salt):** Uses a master-minion architecture to manage and configure systems.
 6. **Terraform:** Focuses on infrastructure as code (IaC) and is primarily used for provisioning and managing infrastructure.
+
+
+![image](https://github.com/discover-devops/my_ansible/assets/53135263/f3563a03-d69b-457e-beda-f8e194ae98a4)
+
+
 
 **Ansible vs. Chef, Puppet, and SaltStack:**
 - **Ansible:** 
