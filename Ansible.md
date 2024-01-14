@@ -8,7 +8,8 @@ Ansible is an open-source automation tool that simplifies configuration manageme
 
 ### Ansible Architecture
 
-![image](https://github.com/discover-devops/my_ansible/assets/53135263/f05eb9a6-e777-45b6-969e-6cb27547a208)
+![image](https://github.com/discover-devops/my_ansible/assets/53135263/ef5ac1d5-10f0-4791-bb55-3588f21ab5f3)
+
 
 
 #### 1. **Control Node:**
