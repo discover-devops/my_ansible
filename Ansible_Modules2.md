@@ -1,4 +1,6 @@
-Yes, you can write your own custom modules in Ansible to perform tasks that are specific to your environment or infrastructure, such as installing Nginx. Custom modules allow you to extend Ansible's functionality beyond what is provided by core and community modules.
+How to write Custome Modules:
+
+You can write your own custom modules in Ansible to perform tasks that are specific to your environment or infrastructure, such as installing Nginx. Custom modules allow you to extend Ansible's functionality beyond what is provided by core and community modules.
 
 To write a custom module to install Nginx, you would typically follow these steps:
 
