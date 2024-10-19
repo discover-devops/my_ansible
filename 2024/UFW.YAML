@@ -1,0 +1,21 @@
+---
+- name: Configure firewall rules
+  hosts: webservers
+  become: yes
+
+  tasks:
+    - name: Allow HTTP traffic
+      ufw:
+        rule: allow
+        port: '80'
+        proto: tcp
+
+    - name: Allow HTTPS traffic
+      ufw:
+        rule: allow
+        port: '443'
+        proto: tcp
+
+    - name: Enable UFW firewall
+      ufw:
+        state: enabled
