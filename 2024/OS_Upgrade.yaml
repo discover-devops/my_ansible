@@ -1,0 +1,32 @@
+---
+- name: Upgrade Ubuntu server
+  hosts: all            # Adjust this to target the specific hosts or group (e.g., 'webservers' or 'dbservers')
+  become: yes           # Use sudo to run the commands as root
+  tasks:
+    
+    # Task 1: Update apt cache
+    - name: Update the apt package cache
+      apt:
+        update_cache: yes
+
+    # Task 2: Perform a full upgrade
+    - name: Upgrade all packages
+      apt:
+        upgrade: dist   # Performs a full upgrade (dist-upgrade)
+    
+    # Task 3: Remove unused packages (optional)
+    - name: Remove unused packages
+      apt:
+        autoremove: yes
+        purge: yes      # This also removes configuration files for the removed packages
+
+    # Task 4: Check if a reboot is required
+    - name: Check if reboot is required
+      stat:
+        path: /var/run/reboot-required
+      register: reboot_required
+
+    # Task 5: Reboot the server if needed
+    - name: Reboot the server if kernel upgrade requires it
+      reboot:
+      when: reboot_required.stat.exists
