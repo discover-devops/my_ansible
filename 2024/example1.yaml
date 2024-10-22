@@ -1,0 +1,37 @@
+---
+- name: Install and configure NGINX on Amazon Linux
+  hosts: webservers      # Specify the target hosts (e.g., 'webservers' group)
+  become: yes            # Use sudo to run tasks as root
+  tasks:
+
+    # Task 1: Update the yum package manager cache
+    - name: Update yum package index
+      yum:
+        name: "*"
+        state: latest
+
+    # Task 2: Install NGINX
+    - name: Install NGINX
+      yum:
+        name: nginx
+        state: present
+
+    # Task 3: Start and enable NGINX service
+    - name: Start and enable NGINX
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    # Task 4: Create a simple HTML file
+    - name: Create a simple index.html file
+      copy:
+        content: |
+          <html>
+          <head><title>Welcome to NGINX on Amazon Linux!</title></head>
+          <body><h1>Welcome to NGINX on Amazon Linux!</h1></body>
+          </html>
+        dest: /usr/share/nginx/html/index.html
+        owner: nginx
+        group: nginx
+        mode: '0644'
