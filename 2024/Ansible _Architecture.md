@@ -101,7 +101,7 @@ All of this is **stateless and agentless**.
 | Managed Node | Receives tasks, executes via Python         |
 | SSH          | Communication layer                         |
 | Python       | Required on both sides for module execution |
-| Agent        | ❌ Not required (unlike Puppet or Chef)      |
+| Agent        | Not required (unlike Puppet or Chef)      |
 
 ---
 
